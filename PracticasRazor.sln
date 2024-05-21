@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PracticasRazor", "PracticasRazor\PracticasRazor.csproj", "{DCC9C8B8-4E14-41D7-ABFF-A3F754AAEE58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCC9C8B8-4E14-41D7-ABFF-A3F754AAEE58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCC9C8B8-4E14-41D7-ABFF-A3F754AAEE58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCC9C8B8-4E14-41D7-ABFF-A3F754AAEE58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCC9C8B8-4E14-41D7-ABFF-A3F754AAEE58}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {574CF951-0984-4073-A429-B161126B6061}
+	EndGlobalSection
+EndGlobal

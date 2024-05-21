@@ -1,0 +1,51 @@
+﻿@page
+@model PracticasRazor.Pages.PesoModel
+@{
+}
+
+<h1>Calculo de Indice de Masa Corporal</h1>
+<math>
+    <mrow>
+        <mi>IMC</mi>
+        <mo>=</mo>
+        <mfrac>
+            <mrow>
+                <mi>Peso</mi>
+            </mrow>
+            <mrow>
+                <msup>
+                    <mi>Altura</mi>
+                    <mn>2</mn>
+                </msup>
+            </mrow>
+        </mfrac>
+    </mrow>
+</math>
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="peso"></label>
+        <input asp-for="peso" class="form-control" />
+        <span asp-validation-for="peso" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="altura"></label>
+        <input asp-for="altura" class="form-control" />
+        <span asp-validation-for="altura" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Calcular</button>
+    </form>
+@if (Model.imc != null && Model.imc != 0)
+    {
+        <h4>Peso = @Model.peso</h4>
+        <h4>Altura = @Model.altura</h4>
+        <h2>IMC</h2>
+        <math>
+            <mrow>
+                <mi>IMC</mi>
+                <mo>=</mo>
+                <mn>@Model.imc</mn>
+            </mrow>
+        </math>
+        <h2>Clasificación</h2>
+        <h4>@Model.clasificacion</h4>
+    }

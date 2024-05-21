@@ -1,0 +1,130 @@
+﻿@page
+@model PracticasRazor.Pages.ExpresionModel
+<style>
+    .coefficient {
+        vertical-align: sub;
+        font-size: smaller;
+    }
+</style>
+@{
+}
+
+<h3>Expresion (ax + by)²</h3>
+<form method="POST">
+    <div class="form-group">
+        <label asp-for="a"></label>
+        <input asp-for="a" class="form-control" />
+        <span asp-validation-for="a" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="b"></label>
+        <input asp-for="b" class="form-control" />
+        <span asp-validation-for="b" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="x"></label>
+        <input asp-for="x" class="form-control" />
+        <span asp-validation-for="x" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="y"></label>
+        <input asp-for="y" class="form-control" />
+        <span asp-validation-for="y" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="n"></label>
+        <input asp-for="n" class="form-control" />
+        <span asp-validation-for="n" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Calcular</button>
+</form>
+@if (Model.resultado != null && Model.resultado != 0)
+{
+    <h4>a = @Model.a</h4>
+    <h4>b = @Model.b</h4>
+    <h4>x = @Model.x</h4>
+    <h4>y = @Model.y</h4>
+    <h4>n = @Model.n</h4>
+    <h2>Ecuacion sustituida</h2>
+    <math>
+        <mrow>
+            <msup>
+                <mrow>
+                    <mo>(</mo>
+                    <mrow>
+                        <mi>@Model.a</mi>
+                        <mo>&#8290;</mo>
+                        <mi>@Model.x</mi>
+                        <mo>+</mo>
+                        <mi>@Model.b</mi>
+                        <mo>&#8290;</mo>
+                        <mi>@Model.y</mi>
+                    </mrow>
+                    <mo>)</mo>
+                </mrow>
+                <mn>@Model.n</mn>
+            </msup>
+            <mo>=</mo>
+            <mn>@Model.resultado</mn>
+        </mrow>
+    </math>
+
+    <h2>Igualdad</h2>
+    @for (int k = 0; k < Model.combinaciones.Length; k++)
+    {
+        <h3>K = @k </h3>
+        <math>
+            <mrow>
+                <mo>(</mo>
+                <mfrac linethickness="0">
+                    <mrow>
+                        <mi>@Model.n</mi>
+                    </mrow>
+                    <mrow class="coefficient">
+                        <mi>@k</mi>
+                    </mrow>
+                </mfrac>
+                <mo>)</mo>
+                <msup>
+                    <mrow>
+                        <mo>(</mo>
+                        <mrow>
+                            <mi>@Model.a</mi>
+                            <mo>*</mo>
+                            <mi>@Model.x</mi>
+                        </mrow>
+                        <mo>)</mo>
+                    </mrow>
+                    <mn>@Model.n - @k</mn>
+                </msup>
+                
+                <msup>
+                    <mrow>
+                        <mo>(</mo>
+                        <mrow>
+                            <mi>@Model.b</mi>
+                            <mo>*</mo>
+                            <mi>@Model.y</mi>
+                        </mrow>
+                        <mo>)</mo>
+                    </mrow>
+                    <mn>@k</mn>
+                </msup>
+                <mo>=</mo>
+                <mn>@Model.combinaciones[k][1]</mn>
+            </mrow>
+        </math>
+
+    }
+
+    <h1>Total</h1>
+    <h4>Total = @Model.igualdad</h4>
+
+
+
+
+}
+@if (Model.resultado == 0)
+{
+    <h4>Resultado = 0</h4>
+}

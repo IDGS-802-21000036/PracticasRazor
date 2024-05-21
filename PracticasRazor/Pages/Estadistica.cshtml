@@ -1,0 +1,45 @@
+﻿@page
+@model PracticasRazor.Pages.EstadisticaModel
+@{
+}
+
+<h1>Arreglo aleatorio</h1>
+<form method="POST">
+    <button type="submit" class="btn btn-primary">Generar</button>
+</form>
+@if (Model.arregloAleatorio != null && Model.arregloAleatorio.Length > 0)
+{
+<h2>Arreglo</h2>
+<div style="display: flex;">
+    @foreach (var item in Model.arregloAleatorio)
+    {
+        <div style="border: 1px solid black; padding: 5px; margin-right: 10px;">
+            <p>@item</p>
+        </div>
+    }
+</div>
+
+<h2>Ordenado</h2>
+<div style="display: flex;">
+    @foreach (var item in Model.arregloOrdenado)
+    {
+        <div style="border: 1px solid black; padding: 5px; margin-right: 10px;">
+            <p>@item</p>
+        </div>
+    }
+</div>
+    <h2>Estadisticas</h2>
+    <h4>Suma = @Model.suma</h4>
+    <h4>Promedio = @Model.promedio</h4>
+    <h4>
+        Moda
+    </h4>
+    <ul>
+        @foreach (var item in Model.moda)
+        {
+            <li>@item</li>
+        }
+        </ul>
+
+        <h4>Mediana = @Model.mediana</h4>
+}
